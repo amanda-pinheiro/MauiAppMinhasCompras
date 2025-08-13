@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLite;
 using MauiAppMinhasCompras.Models;
-using Windows.Gaming.Input;
 
 namespace MauiAppMinhasCompras.Helpers
 {
@@ -25,8 +24,8 @@ namespace MauiAppMinhasCompras.Helpers
             return _conn.InsertAsync(p);
         }
         public Task <List<Produto>> Update(Produto p) 
-        { 
-            string sql = "Update Produto SET Descricao=?, Quantidade=?, Preco=? WHERE Id=?"
+        {
+            string sql = "Update Produto SET Descricao=?, Quantidade=?, Preco=? WHERE Id=?";
 
             return _conn.QueryAsync<Produto>(
                 sql,p.Descricao, p.Quantidade, p.Preco, p.Id                
