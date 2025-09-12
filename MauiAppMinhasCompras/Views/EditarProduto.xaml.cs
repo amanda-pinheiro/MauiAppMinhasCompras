@@ -14,23 +14,24 @@ public partial class EditarProduto : ContentPage
         try
         {
             Produto produto_anexado = BindingContext as Produto;
-            Produto p = new Produto()
+            
 
             {
-                Id = produto_anexado.Id,
-                Descricao = txt_descricao.Text,
-                Quantidade = Convert.ToDouble(txt_quantidade.Text),
-                Preco = Convert.ToDouble(txt_preco.Text)
-            };
+                produto_anexado.Descricao = txt_descricao.Text;
+                produto_anexado.Quantidade = Convert.ToDouble(txt_quantidade.Text);
+                produto_anexado.Preco = Convert.ToDouble(txt_preco.Text);
+                produto_anexado.Categoria = txt_categoria.Text;
+            }
+            ;
 
-            await App.Db.Update(p);
+            await App.Db.Update(produto_anexado);
             await DisplayAlert("Sucesso!", "Registro Atualizado", "OK");
             await Navigation.PopAsync();
 
         }
         catch (Exception ex)
         {
-            DisplayAlert("Ops", ex.Message, "OK");
+            await DisplayAlert("Ops", ex.Message, "OK");
         }
     }
 }
