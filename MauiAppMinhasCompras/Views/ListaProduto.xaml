@@ -6,6 +6,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Somar" Clicked="ToolbarItem_Clicked_1"/>
+        <ToolbarItem Text="Relatório" Clicked="ToolbarItem_Clicked_2"/>
         <ToolbarItem Text="Adicionar Novo Produto"  Clicked = "ToolbarItem_Clicked" />
         
     </ContentPage.ToolbarItems>
@@ -17,6 +18,11 @@
                    TextChanged="txt_search_TextChanged"
                    Margin="10,0,10,0"
                    />
+        
+        <Picker x:Name="pickerCategoria" 
+                Title="Selecione uma categoria" 
+                SelectedIndexChanged="pickerCategoria_SelectedIndexChanged"
+                Margin="10,5" />
         
         <Frame Padding="0" Margin="10" VerticalOptions="FillAndExpand">
             <ListView x:Name="lst_produtos" 

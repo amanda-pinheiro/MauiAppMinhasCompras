@@ -49,5 +49,29 @@ namespace MauiAppMinhasCompras.Helpers
             return _conn.QueryAsync<Produto>(sql);
         }
 
+        // Alterações para o desafio 1
+        public async Task<List<string>> GetCategorias()
+        {
+            try
+            {
+                var produtos = await _conn.Table<Produto>().ToListAsync();
+                return produtos.Select(p => p.Categoria)
+                              .Where(c => !string.IsNullOrWhiteSpace(c))
+                              .Distinct()
+                              .OrderBy(c => c)
+                              .ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro ao buscar categorias: {ex.Message}");
+            }
+        }
+
+        public Task<List<Produto>> GetByCategoria(string categoria)
+        {
+            string sql = "SELECT * FROM Produto WHERE Categoria = ?";
+            return _conn.QueryAsync<Produto>(sql, categoria);
+        }
+
     }
 }

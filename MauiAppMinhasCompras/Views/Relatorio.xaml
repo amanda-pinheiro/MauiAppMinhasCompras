@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="MauiAppMinhasCompras.Views.Relatorio"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Relatório por Categoria">
+
+    <ScrollView>
+        <StackLayout Padding="20">
+
+            <!-- Título -->
+            <Label Text="Relatório de Gastos" 
+                   FontSize="24" 
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" 
+                   Margin="0,0,0,20" />
+
+            <!-- Total Geral -->
+            <Frame BackgroundColor="Green" 
+                   CornerRadius="10" 
+                   Padding="20" 
+                   Margin="0,0,0,20">
+                
+                <Label x:Name="lblTotalGeral" 
+                       Text="Total Geral: R$ 0,00" 
+                       FontSize="18" 
+                       FontAttributes="Bold" 
+                       TextColor="White" 
+                       HorizontalOptions="Center" />
+            </Frame>
+
+            <!-- Info -->
+            <Label x:Name="lblInfo" 
+                   Text="Carregando..." 
+                   FontSize="14" 
+                   TextColor="Gray" 
+                   HorizontalOptions="Center" 
+                   Margin="0,0,0,20" />
+
+            <!-- Lista de Categorias -->
+            <StackLayout x:Name="stackCategorias">
+                <!-- Os itens do relatório aparecerão aqui -->
+            </StackLayout>
+
+            <!-- Botão Atualizar -->
+            <Button Text="Atualizar Relatório" 
+                    BackgroundColor="Blue" 
+                    TextColor="White"
+                    Clicked="Button_Clicked" 
+                    Margin="0,20,0,0" />
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
